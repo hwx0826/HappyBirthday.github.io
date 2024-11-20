@@ -3,6 +3,7 @@ html {
 }
 
 body {
+  overflow: hidden;
   font-family: 'Work Sans', sans-serif;
   margin: 0;
   background-image: url(../img/bg.png);
@@ -58,7 +59,7 @@ body {
 }
 
 .three {
-  font-size: 3rem;
+  font-size: 2rem;
 }
 
 .four .text-box {
@@ -121,19 +122,9 @@ body {
 }
 
 .six img {
-  margin-top: 8vh;
   display: inline-block;
   max-width: 100%;
   height: auto;
-}
-
-.six .hat {
-  position: absolute;
-  width: 80px;
-  top: -70px;
-  left: 49%;
-  /* 等比例扩大图片到2倍 */
-  transform: scale(1.1);
 }
 
 .baloons img {
@@ -238,31 +229,6 @@ body {
   cursor: pointer;
 }
 
-/* Media Queries */
-@media screen and (max-height: 1000px) {
-  .six .hat {
-    left: 40%;
-  }
-}
-
-@media screen and (max-height: 800px) {
-  .six .hat {
-    left: 38%;
-  }
-}
-
-@media screen and (max-height: 700px) {
-  .six .hat {
-    left: 36%;
-  }
-}
-
-@media screen and (max-height: 850px) and (max-width: 450px) {
-  .six .hat {
-    left: 34%;
-  }
-}
-
 @media screen and (max-width: 500px) {
   .container {
     width: 90%;
@@ -283,10 +249,6 @@ body {
 
   .idea-6 span {
     font-size: 10rem;
-  }
-
-  .six .hat {
-    width: 50px;
   }
 
   .wish-hbd {
@@ -359,7 +321,15 @@ body {
   font-weight: bold;
   background: linear-gradient(90deg, #ff00ff, #00ffff, #ff00ff);
   /* 渐变背景 */
+  /* 标准属性 */
+  background-clip: text;
+  /* 为了兼容老版本浏览器，可以添加厂商前缀 */
   -webkit-background-clip: text;
+  /* Safari */
+  -moz-background-clip: text;
+  /* Firefox */
+  -ms-background-clip: text;
+  /* IE */
   /* 让背景渐变应用于文字 */
   color: transparent;
   /* 文字颜色透明，以便展示渐变 */

@@ -3,16 +3,16 @@ const fetchData = () => {
   fetch("customize.json")
     .then(data => data.json())
     .then(data => {
-      data['text1-1'] += `第${calculateDays('2000-11-22')}天`
-      dataArr = Object.keys(data)
+      data['text1-2'] += `第${calculateDays('2000-11-22')}天`;
+      dataArr = Object.keys(data);
       dataArr.map(customData => {
         if (data[customData] !== "") {
           if (customData === "imagePath") {
             document
               .querySelector(`[data-node-name*="${customData}"]`)
-              .setAttribute("src", data[customData])
+              .setAttribute("src", data[customData]);
           } else {
-            document.querySelector(`[data-node-name*="${customData}"]`).innerText = data[customData]
+            document.querySelector(`[data-node-name*="${customData}"]`).innerText = data[customData];
           }
         }
 
@@ -20,16 +20,17 @@ const fetchData = () => {
         // Run amimation if so
         if (dataArr.length === dataArr.indexOf(customData) + 1) {
           document.querySelector("#startButton").addEventListener("click", () => {
-            document.querySelector(".startSign").style.display = "none"
-            document.getElementById('myVideo').play()
-            animationTimeline()
+            document.querySelector(".startSign").style.display = "none";
+            document.querySelector(".container").style.display = "block";
+            document.getElementById('myVideo').play();
+            animationTimeline();
           }
-          )
+          );
           // animationTimeline()
         }
-      })
-    })
-}
+      });
+    });
+};
 
 // let audio = null
 // const playPauseButton = document.getElementById('playPauseButton')
@@ -73,32 +74,32 @@ function calculateDays(startDateString) {
 // Animation Timeline
 const animationTimeline = () => {
   // Spit chars that needs to be animated individually
-  const textBoxChars = document.getElementsByClassName("hbd-chatbox")[0]
-  const hbd = document.getElementsByClassName("wish-hbd")[0]
+  const textBoxChars = document.getElementsByClassName("hbd-chatbox")[0];
+  const hbd = document.getElementsByClassName("wish-hbd")[0];
 
   textBoxChars.innerHTML = `<span>${textBoxChars.innerHTML
     .split("")
-    .join("</span><span>")}</span`
+    .join("</span><span>")}</span`;
 
   hbd.innerHTML = `<span>${hbd.innerHTML
     .split("")
-    .join("</span><span>")}</span`
+    .join("</span><span>")}</span`;
 
   const ideaTextTrans = {
     opacity: 0,
     y: -20,
     rotationX: 5,
     skewX: "15deg"
-  }
+  };
 
   const ideaTextTransLeave = {
     opacity: 0,
     y: 20,
     rotationY: 5,
     skewX: "-15deg"
-  }
+  };
 
-  const tl = new TimelineMax()
+  const tl = new TimelineMax();
 
   tl
     .to(".container", 0.1, {
@@ -336,18 +337,18 @@ const animationTimeline = () => {
         rotation: 90
       },
       "+=1"
-    )
+    );
 
   // tl.seek("currentStep");
   // tl.timeScale(2);
 
   // Restart Animation on click
-  const replyBtn = document.getElementById("replay")
+  const replyBtn = document.getElementById("replay");
   replyBtn.addEventListener("click", () => {
-    tl.restart()
-    document.getElementById('myVideo').play()
-  })
-}
+    tl.restart();
+    document.getElementById('myVideo').play();
+  });
+};
 
 // Run fetch and animation in sequence
-fetchData()
+fetchData();
