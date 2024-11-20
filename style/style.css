@@ -353,3 +353,33 @@ body {
   padding: 1rem 1.6rem;
   cursor: pointer;
 }
+
+#replay {
+  font-size: 24px;
+  font-weight: bold;
+  background: linear-gradient(90deg, #ff00ff, #00ffff, #ff00ff);
+  /* 渐变背景 */
+  -webkit-background-clip: text;
+  /* 让背景渐变应用于文字 */
+  color: transparent;
+  /* 文字颜色透明，以便展示渐变 */
+  animation: colorChange 2s infinite;
+  /* 渐变闪烁动画 */
+}
+
+@keyframes colorChange {
+  0% {
+    color: transparent;
+    /* 文字颜色透明 */
+  }
+
+  50% {
+    color: #ff00ff;
+    /* 文字颜色为某个颜色 (例如粉色) */
+  }
+
+  100% {
+    color: transparent;
+    /* 文字颜色透明 */
+  }
+}
