@@ -3,7 +3,7 @@ const fetchData = () => {
   fetch("customize.json")
     .then(data => data.json())
     .then(data => {
-      data['text1-2'] += `第${calculateDays('2000-11-22')}天`;
+      data['text1-2'] += `${calculateDays('2000-11-22')}天`;
       dataArr = Object.keys(data);
       dataArr.map(customData => {
         if (data[customData] !== "") {
